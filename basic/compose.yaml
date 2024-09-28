@@ -1,0 +1,14 @@
+services:
+  crowdsec:
+    image: crowdsecurity/crowdsec
+    restart: unless-stopped
+    ports:
+      - "5514:5514/udp"
+      - "5514:5514/tcp"
+      - "8090:8080"
+    volumes:
+      - ./crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
+      #- crowdsec-db:/var/lib/crowdsec/data/
+      #- crowdsec-config:/etc/crowdsec/
+
+
